@@ -18,8 +18,8 @@ import {
   BannerRightPart,
   BannerCloseButton,
   SearchContainer,
+  SearchIconButton,
   SearchInput,
-  SearchIconContainer,
   LoaderContainer,
 } from './styledComponent'
 
@@ -145,6 +145,7 @@ class Home extends Component {
                 </BannerLeftPart>
                 <BannerRightPart>
                   <BannerCloseButton
+                    type="button"
                     data-testid="close"
                     onClick={this.onCloseBanner}
                   >
@@ -160,12 +161,13 @@ class Home extends Component {
                   onChange={this.onChangeInput}
                   color={textColor}
                 />
-                <SearchIconContainer
-                  data-testid="searchButton"
+                <SearchIconButton
+                  type="button"
                   onClick={this.getSearchResults}
+                  data-testid="searchButton"
                 >
                   <AiOutlineSearch size={20} />
-                </SearchIconContainer>
+                </SearchIconButton>
               </SearchContainer>
               {this.renderHomeVideos()}
             </HomeContainer>

@@ -41,7 +41,7 @@ export const SocialButton = styled.button`
   margin-right: 10px;
   color: ${props => props.color};
 `
-export const ButtonText = styled.span`
+export const ButtonText = styled.p`
   margin-left: 5px;
   @media screen and (max-width: 576px) {
     display: none;

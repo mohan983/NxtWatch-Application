@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import Header from '../Header'
 import NavigationBar from '../NavigationBar'
 import VideoAndThemeContext from '../../Context/VideoAndThemeContext'
@@ -13,8 +14,6 @@ const NotFound = () => (
   <VideoAndThemeContext.Consumer>
     {value => {
       const {isDarkTheme} = value
-      // console.log(savedVideos)
-
       const bgColor = isDarkTheme ? '#181818' : '#f9f9f9'
       const headingColor = isDarkTheme ? '#f1f5f9' : '#1e293b'
       const noteColor = isDarkTheme ? '#e2e8f0' : '#475569'
@@ -24,7 +23,7 @@ const NotFound = () => (
         : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-not-found-dark-theme-img.png'
 
       return (
-        <>
+        <Link to="/bad-path">
           <Header />
           <NavigationBar />
           <NotFoundContainer bgColor={bgColor}>
@@ -38,7 +37,7 @@ const NotFound = () => (
               </NotFoundVideosNote>
             </NotFoundVideosView>
           </NotFoundContainer>
-        </>
+        </Link>
       )
     }}
   </VideoAndThemeContext.Consumer>

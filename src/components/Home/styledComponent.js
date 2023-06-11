@@ -67,7 +67,7 @@ export const SearchContainer = styled.div`
     width: 40%;
   }
 `
-export const SearchIconContainer = styled.button`
+export const SearchIconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
