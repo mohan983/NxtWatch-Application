@@ -84,6 +84,7 @@ const PlayVideoView = props => {
                 </BtnContainer>
                 <BtnContainer>
                   <SocialButton
+                    type="button"
                     color={dislikeIconColor}
                     onClick={onClickDislike}
                   >
