@@ -23,8 +23,8 @@ const FailureView = props => {
         const noteColor = isDarkTheme ? '#e2e8f0' : '#475569'
 
         const failureImageUrl = isDarkTheme
-          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
 
         return (
           <FailedView>
