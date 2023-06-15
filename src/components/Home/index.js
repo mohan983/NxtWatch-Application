@@ -35,7 +35,7 @@ class Home extends Component {
     homeVideos: [],
     searchInput: '',
     apiStatus: apiStatusConstants.initial,
-    bannerDisplay: 'flex',
+    bannerDisplay: true,
   }
 
   componentDidMount() {
@@ -54,7 +54,6 @@ class Home extends Component {
       method: 'GET',
     }
     const response = await fetch(url, options)
-    console.log(response)
     if (response.ok) {
       const data = await response.json()
       const updatedData = data.videos.map(eachVideo => ({
@@ -76,7 +75,7 @@ class Home extends Component {
   }
 
   onCloseBanner = () => {
-    this.setState({bannerDisplay: 'none'})
+    this.setState({bannerDisplay: false})
   }
 
   onChangeInput = event => {
@@ -128,31 +127,31 @@ class Home extends Component {
 
           const bgColor = isDarkTheme ? '#181818' : '#f9f9f9'
           const textColor = isDarkTheme ? '#f9f9f9' : '#231f20'
-          const display = bannerDisplay === 'flex' ? 'flex' : 'none'
-
           return (
             <HomeContainer data-testid="home" bgColor={bgColor}>
-              <BannerContainer data-testid="banner" display={display}>
-                <BannerLeftPart>
-                  <BannerImage
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    alt="nxt watch logo"
-                  />
-                  <BannerText>
-                    Buy Nxt Watch Premium prepaid plans with <br /> UPI
-                  </BannerText>
-                  <BannerButton type="button">GET IT NOW</BannerButton>
-                </BannerLeftPart>
-                <BannerRightPart>
-                  <BannerCloseButton
-                    type="button"
-                    data-testid="close"
-                    onClick={this.onCloseBanner}
-                  >
-                    <AiOutlineClose size={25} />
-                  </BannerCloseButton>
-                </BannerRightPart>
-              </BannerContainer>
+              {bannerDisplay ? (
+                <BannerContainer data-testid="banner">
+                  <BannerLeftPart>
+                    <BannerImage
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      alt="nxt watch logo"
+                    />
+                    <BannerText>
+                      Buy Nxt Watch Premium prepaid plans with <br /> UPI
+                    </BannerText>
+                    <BannerButton type="button">GET IT NOW</BannerButton>
+                  </BannerLeftPart>
+                  <BannerRightPart>
+                    <BannerCloseButton
+                      type="button"
+                      data-testid="close"
+                      onClick={this.onCloseBanner}
+                    >
+                      <AiOutlineClose size={25} />
+                    </BannerCloseButton>
+                  </BannerRightPart>
+                </BannerContainer>
+              ) : null}
               <SearchContainer>
                 <SearchInput
                   type="search"
